@@ -1,7 +1,3 @@
-To SNS Addon for XE
+To SNS 애드온
 ====
-XE에서 글을 등록할 시 SNS에 등록하는 간단한 애드온입니다.
-
-사용법
-====
-http://www.wincomi.com/store_manual/21853
+XE에서 글을 등록할 때 트위터에 트윗을 올리는 애드온입니다.
