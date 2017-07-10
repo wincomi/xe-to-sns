@@ -18,6 +18,7 @@ if(Context::get("act") == "procBoardInsertDocument" && $called_position == "afte
 	$document_srl = $this->get("document_srl");
 	$oDocumentModel = &getModel("document");
 	$oDocument = $oDocumentModel->getDocument($document_srl);
+	$oDocument->setDocument($document_srl); // 첨부파일이 있는 글의 정보를 가져올 수 없는 문제 해결
 	$document_title = $oDocument->variables["title"];
 	$document_url = getFullUrl("", "document_srl", $oDocument->variables["document_srl"]);
 		
