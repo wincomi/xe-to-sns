@@ -13,11 +13,6 @@ if($addon_info->only_admin != "N")
 	if($logged_info->is_admin!="Y") return; // 관리자가 아니면 return
 }
 
-if(!$addon_info->tt_consumer_key || !$addon_info->tt_consumer_secret || !$addon_info->tt_access_token || !$addon_info->tt_access_token_secret) {
-	// 애드온 설정이 없을 경우 return
-	return;
-}
-
 if(Context::get("act") == "procBoardInsertDocument" && $called_position == "after_module_proc" && $this->toBool())
 {
 	$document_srl = $this->get("document_srl");
@@ -59,7 +54,7 @@ if(Context::get("act") == "procBoardInsertDocument" && $called_position == "afte
 	$message = $document_title." ".$document_url;
 
 	// Twitter
-	if($addon_info->use_twitter == "Y")
+	if($addon_info->use_twitter == "Y" && $addon_info->tt_consumer_key && $addon_info->tt_consumer_secret && $addon_info->tt_access_token && $addon_info->tt_access_token_secret)
 	{
 		require_once('twitteroauth/twitteroauth.php');
 		require_once('twitteroauth/OAuth.php');
