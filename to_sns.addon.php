@@ -25,8 +25,7 @@ if(Context::get("act") == "procBoardInsertDocument" && $called_position == "afte
 	}
 	
 	$document_title = $oDocument->variables["title"];
-	$document_url = getFullUrl("", "document_srl", $oDocument->variables["document_srl"]);
-		
+	$document_url = getFullUrl("", "mid", Context::get('mid'), "document_srl", $oDocument->variables["document_srl"]);
 		
 	// 글자 수 자르기
 	function strcut_utf8($str, $len, $checkmb = false, $tail = "") {
