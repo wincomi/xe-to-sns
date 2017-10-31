@@ -21,12 +21,13 @@ if(Context::get("act") == "procBoardInsertDocument" && $called_position == "afte
 	$document_srl = $this->get("document_srl");
 	$oDocumentModel = &getModel("document");
 	$oDocument = $oDocumentModel->getDocument($document_srl);
-	$oDocument->setDocument($document_srl); // 첨부파일이 있는 글의 정보를 가져올 수 없는 문제 해결
 	
 	if($oDocument->isExists() && $oDocument->get('status') !== 'TEMP') {
 		return;
 	}
 	
+	$oDocument->setDocument($document_srl); // 첨부파일이 있는 글의 정보를 가져올 수 없는 문제 해결
+
 	$document_title = $oDocument->variables["title"];
 	$document_url = getFullUrl("", "mid", Context::get('mid'), "document_srl", $oDocument->variables["document_srl"]);
 	
