@@ -4,8 +4,8 @@
 	<description xml:lang="ko">
 		글을 등록할 시 SNS에 등록하는 애드온입니다.
 	</description>
-	<version>0.2.4</version>
-	<date>2017-09-28</date>
+	<version>0.2.5</version>
+	<date>2017-11-01</date>
 	<author email_address="admin@wincomi.com" link="https://www.wincomi.com">
 		<name xml:lang="ko">윈컴이</name>
 	</author>
