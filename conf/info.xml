@@ -4,10 +4,10 @@
 	<description xml:lang="ko">
 		글을 등록할 시 SNS에 등록하는 애드온입니다.
 	</description>
-	<version>0.2.5</version>
+	<version>0.2.6</version>
 	<date>2017-11-01</date>
 	<author email_address="admin@wincomi.com" link="https://www.wincomi.com">
-		<name xml:lang="ko">윈컴이</name>
+		<name xml:lang="ko">코미 (윈컴이)</name>
 	</author>
 
 	<extra_vars>
@@ -15,7 +15,18 @@
 			<title xml:lang="ko">기본 설정</title>
 			<var name="only_admin" type="select">
 				<title xml:lang="ko">관리자만 사용</title>
-				<description xml:lang="ko">사용 할 경우 관리자가 올린 글만 등록됩니다.</description>
+				<description xml:lang="ko">사용 할 경우 관리자가 올린 글만 전송됩니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">사용 안 함</title>
+				</options>
+			</var>
+
+			<var name="document_update" type="select">
+				<title xml:lang="ko">글 수정시 사용</title>
+				<description xml:lang="ko">글 수정시에도 전송합니다.</description>
 				<options value="Y">
 					<title xml:lang="ko">사용</title>
 				</options>

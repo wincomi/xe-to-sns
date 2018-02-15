@@ -18,14 +18,15 @@ if($addon_info->only_admin != "N")
 
 if(Context::get("act") == "procBoardInsertDocument" && $called_position == "after_module_proc" && $this->toBool())
 {
+
 	$document_srl = $this->get("document_srl");
 	$oDocumentModel = &getModel("document");
 	$oDocument = $oDocumentModel->getDocument($document_srl);
-	
-	if($oDocument->isExists() && $oDocument->get('status') !== 'TEMP') {
+
+	if($addon_info->document_update == 'N' && $oDocument->isExists() && $oDocument->get('status') !== 'TEMP') {
 		return;
 	}
-	
+
 	$oDocument->setDocument($document_srl); // 첨부파일이 있는 글의 정보를 가져올 수 없는 문제 해결
 
 	$document_title = $oDocument->variables["title"];
@@ -56,18 +57,18 @@ if(Context::get("act") == "procBoardInsertDocument" && $called_position == "afte
 		$slen = strlen($str); // length of source string
 		$tlen = strlen($tail); // length of tail string
 		$mlen = count($m); // length of matched characters
-		
+
 		if ($slen <= $len) return $str;
 		if (!$checkmb && $mlen <= $len) return $str;
-		
+
 		$ret = array();
 		$count = 0;
 		for ($i=0; $i < $len; $i++) {
-		    $count += ($checkmb && strlen($m[$i]) > 1)?2:1;
-		    if ($count + $tlen > $len) break;
-		    $ret[] = $m[$i];
+			$count += ($checkmb && strlen($m[$i]) > 1)?2:1;
+			if ($count + $tlen > $len) break;
+			$ret[] = $m[$i];
 		}
-		
+
 		return join("", $ret).$tail;
 	}
 }
